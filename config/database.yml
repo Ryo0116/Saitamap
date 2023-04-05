@@ -1,10 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
@@ -12,8 +9,11 @@ development:
 
 test:
   <<: *default
-  database: Saitmap_development
+  database: Saitmap_test
 
 production:
   <<: *default
-  database: Saitmap_development
+  database: Saitmap_production
+  username: Saitamap
+  password: <%= ENV['SAITAMAP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
