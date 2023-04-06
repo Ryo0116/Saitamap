@@ -2,14 +2,14 @@ databases:
   - name: Saitamap_production
     databaseName: Saitamap_production
     user: Saitamap
-    region: Oregon (US West)
+    region: singapore
     plan: free
 
 services:
   - type: web
     name: Saitamap_production
     env: ruby
-    region: Oregon (US West)
+    region: singapore
     plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
