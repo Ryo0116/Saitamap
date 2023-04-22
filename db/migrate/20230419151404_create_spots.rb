@@ -4,7 +4,8 @@ class CreateSpots < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :address
       t.text :description
-      t.references :user, null: false, foreign_key: true
+      t.references :user, foreign_key: true
+      t.text :image_name
 
       t.timestamps
     end
