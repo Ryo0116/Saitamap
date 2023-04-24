@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'top/index'
   devise_for :users
-  root 'spots#index'
+  root 'top#index'
 
   get 'likes/create'
   get 'likes/destroy'
@@ -12,7 +13,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :spots do
-
-  end
+  resources :spots 
 end

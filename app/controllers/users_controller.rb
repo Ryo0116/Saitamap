@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
+  skip_before_action :require_login, only: [:index]
 
-  def show
-  end
+  def index; end
 end
