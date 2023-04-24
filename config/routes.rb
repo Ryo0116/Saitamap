@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'top/index'
   devise_for :users
-  root 'spots#index'
+  root 'top#index'
 
   get 'likes/create'
   get 'likes/destroy'
