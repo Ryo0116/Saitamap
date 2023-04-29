@@ -16,6 +16,8 @@ gem "bootsnap", require: false
 gem "slim-rails"
 gem "html2slim"
 gem "devise"
+gem "devise-i18n"
+gem "devise-i18n-views"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -1,0 +1,26 @@
+.container.device
+  .device_frame
+    p.my-4
+      | 新規アカウント登録
+    .device_inner
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "users/shared/error_messages", resource: resource
+        .field.form-row
+
+        .col-2.required-b.pt-2
+        = f.text_field :name, class: "form-control col-10 px-2", placeholder: "名前"
+    .field.form-row
+      .col-2.required-b.pt-2
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-10 px-2", placeholder: "メールアドレス"
+    .field.form-row
+      .col-2.required-b.pt-2
+      - if @minimum_password_length
+
+      br
+      = f.password_field :password, autocomplete: "new-password", class: "form-control col-10 px-2", placeholder: "パスワード"
+    .field.form-row
+      .col-2.required-b.pt-2
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-10 px-2", placeholder: "パスワード確認"
+    .actions
+      = f.submit "新規アカウント登録", class: "link form-control btn btn-primary my-4"
+    = render "users/shared/links"
