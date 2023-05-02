@@ -18,6 +18,10 @@ gem "html2slim"
 gem "devise"
 gem "devise-i18n"
 gem "devise-i18n-views"
+gem "webpacker"
+gem "sassc"
+gem "rails-i18n"
+gem "pry-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

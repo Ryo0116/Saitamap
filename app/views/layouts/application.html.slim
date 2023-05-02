@@ -2,11 +2,75 @@ doctype html
 html
   head
     title
-      | Saitamap
+      | SAITAMAP
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_importmap_tags
+    link[rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"]
+    script[src="https://kit.fontawesome.com/9d0624b398.js" crossorigin="anonymous"]
+    script[src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"]
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"]
+    script[src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"]
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    /= render 'users/shared/notification'
+    header.header
+      .header-inner
+
+        .header-left-nav
+          .header-log
+            /= link_to "Nomad Share", :/, class:"link"
+            /= form_with url: search_path, local: true, method: :get do |f|
+            /検索 エリア
+            .header-sharch.d-lg-inline-block.d-none.my-2.mx-3
+              /= f.text_field :area, class: "form-control", placeholder: "エリア"
+            i.fa-solid.fa-location-dot
+            /検索 キーワード
+            .header-sharch.d-lg-inline-block.d-none.my-2
+              /= f.text_field :keyword, class: "form-control", placeholder: "キーワード"
+            i.fas.fa-search
+            input.d-none[type="submit" name="commit" value="" data-disable-with=""]
+
+        .header-right-nav
+
+          .nav-item.d-sm-inline-block.d-none
+            - if user_signed_in?
+              = current_user.name
+              - if current_user.image_name.file.nil?
+                img.host-icon[src="/assets/surf.jpeg"]
+              - else
+                =image_tag current_user.image_name.url, class: "host-icon"
+        .nav-item
+
+        .navbar.mx-3　p-1.host-icon.nav-trigger
+        | menu
+      ul.header-nav-menu
+      /
+        li
+          =link_to "スポット登録", spots_new_path
+        li
+          =link_to "いいね一覧", :reservations
+        li
+          =link_to "登録済みスポット一覧", :rooms_posts
+        li
+          = link_to "設定", edit_user_registration_path
+        li
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+      /- else
+        .btn.btn-primary.my-2.mx-3
+          = link_to "ログイン",:users_sign_in, class:"link"
+        .btn.btn-secondary
+          = link_to "新規登録",:users_sign_up, class:"link"
+    .clearfix
+    script
+      |  $(function() { $('.nav-trigger').click(function() { $('.header-nav-menu').toggle(1500); }) }); 
+    .notifications
+
+      = yield
+      footer.footer
+        p
+          | &copy;
+          = Time.current.year
+          |  SAITAMAP.INC.
+

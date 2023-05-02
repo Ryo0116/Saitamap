@@ -1,2 +1,42 @@
-h1 Top#index
-p Find me in app/views/top/index.html.slim
+.top
+  .top-main
+    .container
+      .row.col-lg-6
+        .form-fream
+          .form-area
+            p.form-area-title.mb-4
+              | SAITAMAPで埼玉を巡ろう
+            /= form_with url: search_path, local: true, method: :get do |f|
+              label[for="___"]
+                | エリア
+              = f.text_field :area, class: "form-control mb-4", placeholder: "東京"
+              = f.submit "探す", class: "form-control btn-primary mb-4"
+  .container
+    .panel-area.m-5
+      h1.section-title
+        | おすすめのエリア
+      .row
+        .panel-item.col-lg-3.col-6
+          span
+            | 大宮
+          a[href="http://127.0.0.1:3000/search?area=%E6%9D%B1%E4%BA%AC&keyword=&commit="]
+            img.panel-image[src="/assets/Omiya.jpg"]
+          .shadow
+        .panel-item.col-lg-3.col-6
+          span
+            | 秩父
+          a[href="http://127.0.0.1:3000/search?area=%E5%9F%BC%E7%8E%89&keyword=&commit="]
+            img.panel-image[src="/assets/Chichibu.jpg"]
+          .shadow
+        .panel-item.col-lg-3.col-6
+          span
+            | 川越
+          a[href="http://127.0.0.1:3000/search?area=%E6%B2%96%E7%B8%84&keyword=&commit="]
+            img.panel-image.shadow[src="/assets/Kawagoe.jpg"]
+          .shadow
+        .panel-item.col-lg-3.col-6
+          span
+            | 春日部
+          a[href="http://127.0.0.1:3000/search?area=%E6%96%B0%E6%BD%9F&keyword=&commit="]
+            img.panel-image[src="/assets/Kasukabe.jpg"]
+          .shadow
