@@ -169,8 +169,6 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
-    rack-proxy (0.7.6)
-      rack
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (7.0.4.3)
@@ -228,6 +226,8 @@ GEM
       rspec-support (~> 3.10)
     rspec-support (3.12.0)
     rubyzip (2.3.2)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -240,7 +240,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    semantic_range (3.0.0)
     slim (5.1.0)
       temple (~> 0.10.0)
       tilt (>= 2.0.6, < 2.2)
@@ -278,11 +277,6 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (~> 4.0)
-    webpacker (5.4.4)
-      activesupport (>= 5.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 5.2)
-      semantic_range (>= 2.3.0)
     websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -312,6 +306,7 @@ DEPENDENCIES
   rails (~> 7.0.2, >= 7.0.2.3)
   rails-i18n
   rspec-rails (~> 5.0.0)
+  sass-rails
   sassc
   selenium-webdriver
   slim-rails
@@ -321,7 +316,6 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
-  webpacker
 
 RUBY VERSION
    ruby 3.0.2p107
