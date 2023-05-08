@@ -1,0 +1,30 @@
+h2
+  | 部屋詳細・予約ページ
+table
+  thead
+    tr[align="center"]
+      th
+        | ルーム画像
+      th
+        | ルーム名
+      th
+        | ルーム紹介
+      th
+        | 料金
+      th
+        | 住所
+  tbody
+    tr
+      td
+        = image_tag @room.image_name.url
+      td
+        = @room.name
+      td
+        = @room.introduce
+      td
+        | ¥
+        = @room.single_rate
+        | /泊
+      td
+        = @room.address
+    = render 'reservations/form'
