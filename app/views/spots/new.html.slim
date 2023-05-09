@@ -1,0 +1,30 @@
+.container-fiuld.spot-new
+  .row
+    .col-lg-10.spot-view
+      .room-view-box
+        form#new_room.new_room[enctype="multipart/form-data" action="/spots" accept-charset="UTF-8" method="post"]
+          input[type="hidden" name="authenticity_token"]
+          .update-content
+            .row
+              h5
+                | スポット登録
+          = form_with model: @spot do |f|
+            .update-content
+              .row
+                = f.label :name ,"スポット名" , class: "col-md-3 required-a"
+                = f.text_field :name , class: "form-control mb-4 col-md-9", placeholder: "スポット名を入力"
+            .update-content
+              .row
+                = f.label :description ,"スポット紹介" , class: "col-md-3 required-a"
+                = f.text_area :description , rows: "5",class: "form-control mb-4 col-md-9", placeholder: "スポット説明を入力"
+            .update-content
+              .row
+                = f.label :address ,"住所" , class: "col-md-3 required-a"
+                = f.text_field :address , class: "form-control mb-4 col-md-9", placeholder: "住所を入力"
+            .update-content
+              .row
+                = f.label :image_name ,"スポット画像" , class: "col-md-3 required-a"
+                = f.file_field :image_name , class: "mb-4 col-md-9", placeholder: "スポット画像をアップロード"
+            .update-content
+              .row
+                = f.submit "登録" ,class: "col-md-2 btn btn-primary mx-3"

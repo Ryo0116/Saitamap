@@ -1,0 +1,33 @@
+.container-fiuld.room-posts
+  h4.pb-4
+    | 投稿済みスポット一覧
+  table
+    thead
+      tr[align="center"]
+        th
+          | 番号
+        th
+          | スポット画像
+        th
+          | スポット名
+        th
+          | 紹介文
+        th
+          | 投稿日
+    tbody
+      - @spots.each do |spot|
+        tr
+          td
+            = spot.id
+          td
+            = image_tag (spot.image_name.url)
+          td
+            = spot.name
+          td
+            = spot.description
+          td
+            = spot.created_at.to_s(:datetime_jp)
+          td
+            = link_to "詳細", spot_path(spot.id)
+          td
+            = link_to "削除", spot, method: :delete, data: { confirm: "本当に削除しますか？" }

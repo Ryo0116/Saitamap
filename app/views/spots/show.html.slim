@@ -1,0 +1,24 @@
+h2
+  | スポット詳細ページ
+table
+  thead
+    tr[align="center"]
+      th
+        | スポット画像
+      th
+        | スポット名
+      th
+        | スポット紹介
+      th
+        | 住所
+  tbody
+    tr
+      td
+        = image_tag @spot.image_name.url
+      td
+        = @spot.name
+      td
+        = @spot.description
+      td
+        = @spot.address
+    /= render 'reservations/form'

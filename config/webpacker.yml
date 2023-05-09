@@ -67,10 +67,11 @@ development:
     quiet: false
     pretty: false
     headers:
-      'Access-Control-Allow-Origin': '*'
+      "Access-Control-Allow-Origin": "*"
     watch_options:
-      ignored: '**/node_modules/**'
-
+      ignored: "**/node_modules/**"
+    entry:
+      bootstrap: "bootstrap"
 
 test:
   <<: *default
@@ -78,6 +79,8 @@ test:
 
   # Compile test packs to a separate directory
   public_output_path: packs-test
+  entry:
+    bootstrap: "bootstrap"
 
 production:
   <<: *default
@@ -90,3 +93,5 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+  entry:
+    bootstrap: "bootstrap"
