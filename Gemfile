@@ -24,6 +24,10 @@ gem "pry-rails"
 gem "bootstrap"
 gem "jquery-rails"
 gem "sass-rails"
+gem "sassc-rails"
+gem "webpacker"
+gem "cssbundling-rails"
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
