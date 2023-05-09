@@ -1,30 +1,24 @@
 h2
-  | 部屋詳細・予約ページ
+  | スポット詳細ページ
 table
   thead
     tr[align="center"]
       th
-        | ルーム画像
+        | スポット画像
       th
-        | ルーム名
+        | スポット名
       th
-        | ルーム紹介
-      th
-        | 料金
+        | スポット紹介
       th
         | 住所
   tbody
     tr
       td
-        = image_tag @room.image_name.url
+        = image_tag @spot.image_name.url
       td
-        = @room.name
+        = @spot.name
       td
-        = @room.introduce
+        = @spot.description
       td
-        | ¥
-        = @room.single_rate
-        | /泊
-      td
-        = @room.address
-    = render 'reservations/form'
+        = @spot.address
+    /= render 'reservations/form'
