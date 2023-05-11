@@ -1,3 +1,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "noty/lib/noty";
 @import "noty/lib/themes/sunset";
+@import "common";
+@import "main/*"; /*
+ *= require_tree .
+ *= require_self
+ */

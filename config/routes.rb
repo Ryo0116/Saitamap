@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'searches/index'
+  get 'searches/search'
   get 'top/index'
   devise_for :users
   root 'top#index'
+  get "search" => "searches#search"
 
   get 'likes/create'
   get 'likes/destroy'
