@@ -6,10 +6,9 @@
           .form-area
             p.form-area-title.mb-4
               | SAITAMAPで埼玉を知り尽くせ！遊び尽くせ！
-            /= form_with url: search_path, local: true, method: :get do |f|
+            = form_with url: search_path, local: true, method: :get do |f|
               label[for="___"]
-                | エリア
-              = f.text_field :area, class: "form-control mb-4", placeholder: "東京"
+              = f.text_field :area, class: "form-control mb-4", placeholder: "エリア"
               = f.submit "探す", class: "form-control btn-primary mb-4"
   .container
     .panel-area.m-5

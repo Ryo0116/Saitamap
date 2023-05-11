@@ -1,23 +1,20 @@
     /= render 'users/shared/notification'
-    header.header
+    header.header.bg-info
       .header-inner
-
         .header-left-nav
           .header-log
-            /= link_to "Nomad Share", :/, class:"link"
-            /= form_with url: search_path, local: true, method: :get do |f|
-            /検索 エリア
-            .header-sharch.d-lg-inline-block.d-none.my-2.mx-3
-              /= f.text_field :area, class: "form-control", placeholder: "エリア"
-            i.fa-solid.fa-location-dot
-            /検索 キーワード
-            .header-sharch.d-lg-inline-block.d-none.my-2
-              /= f.text_field :keyword, class: "form-control", placeholder: "キーワード"
-            i.fas.fa-search
-            input.d-none[type="submit" name="commit" value="" data-disable-with=""]
-
+            = link_to "SAITAMAP", root_path, class:"link"
+            = form_with url: search_path, local: true, method: :get do |f|
+              /検索 エリア
+              .header-sharch.d-lg-inline-block.d-none.my-2.mx-3
+                = f.text_field :area, class: "form-control", placeholder: "エリア"
+              i.fa-solid.fa-location-dot
+              /検索 キーワード
+              .header-sharch.d-lg-inline-block.d-none.my-2
+                = f.text_field :keyword, class: "form-control", placeholder: "キーワード"
+              i.fas.fa-search
+              input.d-none[type="submit" name="commit" value="" data-disable-with=""]
         .header-right-nav
-
           .nav-item.d-sm-inline-block.d-none
             - if user_signed_in?
               = current_user.name
@@ -25,24 +22,21 @@
                 img.host-icon[src="/assets/surf.jpeg"]
               - else
                 =image_tag current_user.image_name.url, class: "host-icon"
-        .nav-item
-
-        .navbar.mx-3.p-1.host-icon.nav-trigger
-        | menu
-      ul.header-nav-menu
-      /
-        li
-          =link_to "スポット登録", spots_new_path
-        li
-          =link_to "いいね一覧", :reservations
-        li
-          =link_to "登録済みスポット一覧", :rooms_posts
-        li
-          = link_to "設定", edit_user_registration_path
-        li
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
-      /- else
-        .btn.btn-primary.my-2.mx-3
-          = link_to "ログイン",:users_sign_in, class:"link"
-        .btn.btn-secondary
-          = link_to "新規登録",:users_sign_up, class:"link"
+          .nav-item
+            .navbar.mx-3.p-1.host-icon.nav-trigger
+            | menu
+            ul.header-nav-menu
+              li
+                =link_to "スポット登録", new_spot_path
+              li
+                =link_to "登録済みスポット一覧", spots_path
+              li
+                = link_to "設定", edit_user_registration_path
+              li
+                = link_to "ログアウト", destroy_user_session_path, method: :delete
+            - if user_signed_in?
+            - else
+              .btn.btn-primary.my-2.mx-3
+                = link_to "ログイン", user_session_path, class:"link"
+              .btn.btn-secondary
+                = link_to "新規登録", new_user_registration_path, class:"link"
