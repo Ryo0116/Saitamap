@@ -27,6 +27,7 @@ gem "sass-rails"
 gem "sassc-rails"
 gem "webpacker"
 gem "cssbundling-rails"
+gem "noty"
 
 
 group :development, :test do

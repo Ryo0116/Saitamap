@@ -7,6 +7,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
     "jquery": "^3.6.4",
+    "noty": "^3.2.0-beta-deprecated",
     "popper.js": "^1.16.1",
     "sass": "^1.62.1",
     "turbolinks": "^5.2.0",
