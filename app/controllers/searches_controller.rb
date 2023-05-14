@@ -1,8 +1,5 @@
 class SearchesController < ApplicationController
-  skip_before_action :require_login, only: [:index]
-
-  def index
-  end
+  skip_before_action :authenticate_user!
 
   def search
     if params[:keyword].present?
