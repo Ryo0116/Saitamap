@@ -1,15 +1,22 @@
 .top
   .top-main
     .container
-      .row.col-lg-6
-        .form-fream
-          .form-area
-            p.form-area-title.mb-4
-              | SAITAMAPで埼玉を知り尽くせ！遊び尽くせ！
-            = form_with url: search_path, local: true, method: :get do |f|
-              label[for="___"]
-              = f.text_field :area, class: "form-control mb-4", placeholder: "エリア"
-              = f.submit "探す", class: "form-control btn-primary mb-4"
+      p.text-center.top-title
+        span.big
+          | SAITAMAPで埼玉を知り尽くせ！
+        br
+        span.big
+          | 遊び尽くせ！
+        br
+        | 埼玉って何があるの？？
+        br
+        | 空港も海も無いじゃん！名所も無いでしょ！？
+        br
+        | いいえ！！そんなことありません！！確かに東京のように有名なスポットはないけど・・・
+        br
+        | でも意外といいところありますよ。有名すぎないから混雑しすぎないのもGOOD！
+        br
+        | さぁ、埼玉を楽しんでみては？？
   .container
     .panel-area.m-5
       h1.section-title
@@ -19,7 +26,7 @@
           a.panel-item[href="http://127.0.0.1:3000/search?area=%E6%9D%B1%E4%BA%AC&keyword=&commit="]
             span
               | 大宮
-            img.panel-image[src="/assets/Omiya.jpg", width="100%" height="250px"]
+            img.panel-image[src="/assets/Omiya.jpg", ]
             .shadow
         .col-lg-3.col-md-4.col-sm-6.col-12
           a.panel-item[href="http://127.0.0.1:3000/search?area=%E5%9F%BC%E7%8E%89&keyword=&commit="]

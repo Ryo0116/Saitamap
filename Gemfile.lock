@@ -152,6 +152,7 @@ GEM
     nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    noty (0.1.1)
     orm_adapter (0.5.0)
     pg (1.5.3)
     popper_js (2.11.7)
@@ -305,6 +306,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  noty
   pg
   pry-rails
   puma (~> 5.0)
