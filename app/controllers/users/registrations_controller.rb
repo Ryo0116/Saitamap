@@ -2,12 +2,22 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
 
+  def edit
+    @user = current_user
+    redirect_to root_path, alert: 'ログインしてください' if @user.nil?
+  end
+
   def after_sign_up_path_for(resource)
     root_path(resource)
   end
 
   def after_update_path_for(resource)
     root_top_path(resource)
+  end
+
+  protected
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
