@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:search]
 
   def search
     if params[:keyword].present?

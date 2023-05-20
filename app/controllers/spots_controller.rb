@@ -13,7 +13,7 @@ class SpotsController < ApplicationController
   def create
     @spot = current_user.spots.build(spot_params)
     if @spot.save
-      redirect_to :spots_posts, notice: "保存しました。"
+      redirect_to spots_url, notice: "保存しました。"
     else
       flash[:alert] = "問題が発生しました。"
       render :new
@@ -38,8 +38,12 @@ class SpotsController < ApplicationController
   def destroy
     @spot = Spot.find(params[:id])
     @spot.destroy
-    flash[:notice] = "投稿した場所を削除しました"
+    flash[:notice] = "投稿したスポットを削除しました"
     redirect_to :spots_posts
   end
 
+  private
+  def spot_params
+    params.require(:spot).permit(:id, :name, :description, :address, :image_name, :user_id)
+  end
 end

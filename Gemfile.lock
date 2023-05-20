@@ -322,6 +322,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  mini_magick
   noty
   pg
   pry-rails

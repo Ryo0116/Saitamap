@@ -29,6 +29,7 @@ gem "webpacker"
 gem "cssbundling-rails"
 gem "noty"
 gem "carrierwave"
+gem "mini_magick"
 
 
 group :development, :test do
