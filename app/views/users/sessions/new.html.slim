@@ -10,6 +10,14 @@
         .field.form-row
           .col-2.required-b.pt-2
           = f.password_field :password, autocomplete: "current-password", class: "form-control col-10 px-2", placeholder: "パスワード"
+        
+        .field.form-row
+          - if flash[:alert].present?
+            .col-10.offset-2
+              .alert.alert-danger
+                ul
+                  li = flash[:alert]
+        
         .actions
           = f.submit "ログイン", class:"link form-control btn-primary my-4"
       = render "users/shared/links"

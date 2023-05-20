@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def profile
+    @user = current_user
+  end
 
   before_action :authenticate_user!
 
@@ -9,7 +12,7 @@ class UsersController < ApplicationController
     else
       flash[:alert] = "更新できません"
     end
-    redirect_to root_path
+    redirect_to nomads_top_path
   end
 
   private

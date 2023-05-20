@@ -10,7 +10,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true #名前記入必須
 
-  mount_uploader :image_name, ImageUploader
-
   attr_accessor :current_password
 end
