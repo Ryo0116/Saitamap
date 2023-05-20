@@ -1,13 +1,37 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :authenticate_user!, except: [:new, :create]
+  before_action :configure_sign_up_params, only: [:create]  # 追加
+
+  def create
+    user = User.new(configure_sign_up_params)
+    if user.save
+      bypass_sign_in(user)
+      redirect_to root_path
+    end
+  end
+
+  def edit
+    @user = current_user
+  end
 
   def after_sign_up_path_for(resource)
-    root_path(resource)
+    sign_in(resource)
+    root_path
   end
 
   def after_update_path_for(resource)
-    root_top_path(resource)
+    root_path
+  end
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+  protected
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]

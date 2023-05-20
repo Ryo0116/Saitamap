@@ -1,15 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+  def configure_permitted_parameters
+    #nameのストロングパラメーター
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    #プロフィール編集時にnameと自己紹介、アイコン画像のストロングパラメーター
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :image_name])
   end
-
-  def logged_in?
-    !!current_user
-  end
-
-  helper_method :current_user, :logged_in?
 end

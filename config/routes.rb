@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  
   get 'searches/index'
   get 'searches/search'
   get 'top/index'

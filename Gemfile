@@ -28,6 +28,7 @@ gem "sassc-rails"
 gem "webpacker"
 gem "cssbundling-rails"
 gem "noty"
+gem "carrierwave"
 
 
 group :development, :test do
