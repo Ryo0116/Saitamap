@@ -17,19 +17,15 @@ header.header
           input.d-none[type="submit" name="commit" value="" data-disable-with=""]
     .header-right-nav
       - if user_signed_in?
-        = current_user.name
-      - else
-        | ログインしていません
-      - if user_signed_in?
         .nav-item.d-sm-inline-block.d-none
-          = current_user.name
-            - if current_user.image_name.file.nil?
-              img.host-icon[src="/assets/コバトン.jpg"]
-            - else
-              = image_tag current_user.image_name.url, class: "host-icon"
+          = "#{current_user.name} さん"
+          - if current_user.image_name.file.nil?
+            = image_tag "コバトン.jpg", class: "host-icon"
+          - else
+            = image_tag current_user.image_name.url, class: "host-icon"
         .nav-item
           .navbar.mx-3.p-1.host-icon.nav-trigger
-            | menu
+            | MENU
           ul.header-nav-menu
             li
               = link_to "スポット登録", new_spot_path

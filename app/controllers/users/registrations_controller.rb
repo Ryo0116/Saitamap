@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    root_top_path
+    root_path
   end
 
   def configure_sign_up_params

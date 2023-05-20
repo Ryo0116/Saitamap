@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions'
-  }
-
+  
   get 'searches/index'
   get 'searches/search'
   get 'top/index'
@@ -13,6 +9,11 @@ Rails.application.routes.draw do
 
   get 'likes/create'
   get 'likes/destroy'
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
 
   get 'users/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
