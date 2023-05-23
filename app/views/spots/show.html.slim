@@ -21,4 +21,6 @@ table
         = @spot.description
       td
         = @spot.address
-    /= render 'reservations/form'
+      td
+        = button_to "削除", @spot, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'
+

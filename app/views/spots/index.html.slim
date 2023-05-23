@@ -28,6 +28,8 @@
           td
             = spot.created_at.to_s(:datetime_jp)
           td
-            = link_to "詳細", spot_path(spot.id)
+            = link_to "詳細", spot_path(spot.id), class: 'btn btn-primary mr-3'
           td
-            = link_to "削除", spot, method: :delete, data: { confirm: "本当に削除しますか？" }
+            = link_to "編集", edit_spot_path(spot), class: 'btn btn-primary mr-3'
+          td
+            = button_to "削除", spot, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'
