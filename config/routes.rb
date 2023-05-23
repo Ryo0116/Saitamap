@@ -25,9 +25,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :spots, except: [:edit, :update]
-  get '/spots/:id/edit' => 'spots#edit', as: 'edit_spot'
-  patch '/spots' => 'spots#update', as: 'update_spot'
+  resources :spots
+  patch '/spots/:id', to: 'spots#update', as: 'update_spot'
   
   
 end

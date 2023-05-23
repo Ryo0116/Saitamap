@@ -2,13 +2,14 @@
   .row
     .col-lg-10.spot-view
       .room-view-box
-        form#new_room.new_room[enctype="multipart/form-data" action="/spots" accept-charset="UTF-8" method="post"]
-          input[type="hidden" name="authenticity_token"]
+        form#new_room.new_room[enctype="multipart/form-data" action="/spots/<%= @spot.id %>" accept-charset="UTF-8" method="post"]
+          = hidden_field_tag :_method, "patch"
+          = hidden_field_tag :authenticity_token, form_authenticity_token
           .update-content
             .row
               h5
                 | スポット編集
-          = form_with model: @spot do |f|
+          = form_with model: @spot, method: "patch" do |f|
             .update-content
               .row
                 = f.label :name ,"スポット名" , class: "col-md-3 required-a"
@@ -28,4 +29,4 @@
             .update-content
               .row
                 = f.submit "更新" ,class: "col-md-2 btn btn-primary mx-3"
-                = button_to "削除", @spot, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'
+

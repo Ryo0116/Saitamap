@@ -3,7 +3,7 @@
     .col-lg-10.spot-view
       .room-view-box
         form#new_room.new_room[enctype="multipart/form-data" action="/spots" accept-charset="UTF-8" method="post"]
-          input[type="hidden" name="authenticity_token"]
+          = hidden_field_tag :authenticity_token, form_authenticity_token
           .update-content
             .row
               h5

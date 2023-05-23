@@ -1,6 +1,7 @@
 class SpotsController < ApplicationController
-  protect_from_forgery
+  protect_from_forgery with: :exception
   before_action :authenticate_user!, except: [:show ,:index]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     @spots = Spot.all
@@ -41,7 +42,7 @@ class SpotsController < ApplicationController
   end
 
   def destroy
-    @spot = Spot.find(params[:id])
+    @spot = Spot.find(params.require(:id))
     if @spot.destroy
       flash[:notice] = "投稿したスポットを削除しました"
     else
@@ -54,5 +55,12 @@ class SpotsController < ApplicationController
   private
   def spot_params
     params.require(:spot).permit(:id, :name, :description, :address, :image_name, :user_id)
+  end
+
+  def ensure_correct_user
+    @spot = Spot.find(params[:id])
+    if @spot.user_id != current_user.id
+      redirect_to root_path, alert: "他のユーザーの投稿は編集できません"
+    end
   end
 end
