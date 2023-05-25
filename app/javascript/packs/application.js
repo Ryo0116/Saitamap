@@ -9,4 +9,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 require("@rails/activestorage").start();
-//= require channels
+require("channels").
+require("@rails/ujs").start()
+
+window.Noty = require("noty")

@@ -21,4 +21,8 @@ table
         = @spot.description
       td
         = @spot.address
-    /= render 'reservations/form'
+      td
+        = link_to "編集", edit_spot_path, class: 'btn btn-primary mr-3'
+      td
+        = button_to "削除", @spot, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'
+

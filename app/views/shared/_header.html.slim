@@ -20,7 +20,7 @@ header.header
         .nav-item.d-sm-inline-block.d-none
           = "#{current_user.name} さん"
           - if current_user.image_name.file.nil?
-            = image_tag "コバトン.jpg", class: "host-icon"
+            img.host-icon(src='/assets/Kobaton.jpg')
           - else
             = image_tag current_user.image_name.url, class: "host-icon"
         .nav-item

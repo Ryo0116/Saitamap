@@ -29,10 +29,13 @@ gem "webpacker"
 gem "cssbundling-rails"
 gem "noty"
 gem "carrierwave"
+gem "mini_magick"
 
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rubocop-airbnb'
 end
 
 group :development do
@@ -43,12 +46,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-end
-
-group :development, :test do
-  gem 'rspec-rails', '~> 5.0.0'
-end
-
-group :production do
-  gem "pg"
 end
