@@ -1,5 +1,4 @@
 class SpotsController < ApplicationController
-  protect_from_forgery with: :exception
   before_action :authenticate_user!, except: [:show ,:index]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
@@ -30,9 +29,7 @@ class SpotsController < ApplicationController
   end
 
   def update
-    new_params = spot_params
-    new_params = spot_params.merge(active: true) if is_ready_spot
-    if @spot.update(new_params)
+    if @spot.update(spot_params)
       flash[:notice] = "保存しました。"
       redirect_to spots_url
     else
