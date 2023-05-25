@@ -1,0 +1,22 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+AllCops:
+  Exclude:
+    - "bin/**/*"
+    - "config/environments/*"
+    - "config/initializers/*"
+    - "config/spring.rb"
+    - "config.ru"
+    - "db/schema.rb"
+    - "db/seeds.rb"
+    - "lib/**/*"
+    - "log/**/*"
+    - "node_modules/**/*"
+    - "public/**/*"
+    - "storage/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+
+Layout/LineLength:
+  Max: 130
