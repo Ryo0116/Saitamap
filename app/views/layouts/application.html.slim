@@ -23,7 +23,9 @@ html
     script
       |  $(function() { $('.nav-trigger').click(function() { $('.header-nav-menu').toggle(1500); }) }); 
     .notifications
-
+      - flash.each do |type, message|
+        .alert.alert-#{type}
+          = message
       = yield
       = render 'shared/footer'
 

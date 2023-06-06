@@ -9,7 +9,13 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 require("@rails/activestorage").start();
-require("channels").
 require("@rails/ujs").start()
 
 window.Noty = require("noty")
+
+//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require bootstrap.min
+//= require_tree .

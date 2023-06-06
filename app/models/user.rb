@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_many :spots
   has_one_attached :image_name
+  has_many :likes, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,6 +12,10 @@ class User < ApplicationRecord
   validates :name, presence: true #名前記入必須
 
   mount_uploader :image_name, ImageUploader
+
+  def liked_by?(spot_id)
+    likes.where(spot_id: spot_id).exists?
+  end
 
   attr_accessor :current_password
 end

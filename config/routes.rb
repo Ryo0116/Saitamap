@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :spots
   patch '/spots/:id', to: 'spots#update', as: 'update_spot'
+
+  post 'like/:id' => 'likes#create', as: 'create_like'
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'  
   
   
 end
