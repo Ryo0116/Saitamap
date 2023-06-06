@@ -27,6 +27,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :spots
   patch '/spots/:id', to: 'spots#update', as: 'update_spot'
+
+  resources :spots do
+    resource :likes, only: [:create, :destroy]
+  end
+
   
   
 end

@@ -25,4 +25,12 @@ table
         = link_to "編集", edit_spot_path, class: 'btn btn-primary mr-3'
       td
         = button_to "削除", @spot, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'
+    - if @spot.liked?(current_user)
+      / 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ
+      = link_to spot_like_path(@spot.id), method: :delete do
+        span style="color:red;" ❤︎
+    - else
+      / 一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ
+      = link_to spot_likes_path(@spot.id), method: :spot do
+        span ❤︎
 

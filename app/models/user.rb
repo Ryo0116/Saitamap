@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_many :spots
   has_one_attached :image_name
+  has_many :likes, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
