@@ -13,5 +13,9 @@ class User < ApplicationRecord
 
   mount_uploader :image_name, ImageUploader
 
+  def liked_by?(spot_id)
+    likes.where(spot_id: spot_id).exists?
+  end
+
   attr_accessor :current_password
 end

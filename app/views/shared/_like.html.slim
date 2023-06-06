@@ -1,0 +1,10 @@
+- if current_user.liked_by?(@spot.id)
+  td
+    = link_to destroy_like_path(@spot), class: "like-link", method: :delete, remote: true do
+      i.fa.fa-heart.unlike-btn
+    = @spot.likes.count
+- else
+  td
+    = link_to create_like_path(@spot), class: "like-link", method: :post, remote: true do
+      i.fa.fa-heart.like-btn
+    = @spot.likes.count

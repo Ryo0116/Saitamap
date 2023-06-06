@@ -28,10 +28,8 @@ Rails.application.routes.draw do
   resources :spots
   patch '/spots/:id', to: 'spots#update', as: 'update_spot'
 
-  resources :spots do
-    resource :likes, only: [:create, :destroy]
-  end
-
+  post 'like/:id' => 'likes#create', as: 'create_like'
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'  
   
   
 end
