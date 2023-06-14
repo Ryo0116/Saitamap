@@ -33,9 +33,12 @@ gem "mini_magick"
 
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop-airbnb'
+  gem 'factory_bot_rails'
+  gem 'pry-byebug'
 end
 
 group :development do
