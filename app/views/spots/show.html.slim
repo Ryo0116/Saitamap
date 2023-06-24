@@ -1,8 +1,9 @@
 h2
   | スポット詳細ページ
+
 table
   thead
-    tr[align="center"]
+    tr align="center"
       th
         | スポット画像
       th
@@ -11,6 +12,10 @@ table
         | スポット紹介
       th
         | 住所
+      th
+        | 投稿者名
+      th
+        | アイコン
   tbody
     tr
       td
@@ -22,12 +27,13 @@ table
       td
         = @spot.address
       td
+        = @spot.user.name
+      td
+        = image_tag @spot.user.image_name.url, alt: "User Avatar", class: 'poster-image' if @spot.user.image_name.present?
+      td
         = link_to "編集", edit_spot_path, class: 'btn btn-primary mr-3'
       td
         = button_to "削除", @spot, method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'
       td
         div id="spot_#{@spot.id}"
           = render 'shared/like', spot: @spot
-
-
-

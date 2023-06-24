@@ -277,3 +277,10 @@ h5 {
   font-size: 15px;
   color: #e54747;
 }
+
+.poster-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
