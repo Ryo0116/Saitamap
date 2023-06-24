@@ -1,18 +1,15 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :spot_params
-
+  
   def create
-    Like.create(user_id: current_user.id, spot_id: params[:id])
+    @spot = Spot.find(params[:id])
+    Like.create(user_id: current_user.id, spot_id: @spot.id)
   end
 
   def destroy
-    Like.find_by(user_id: current_user.id, post_id: params[:id]).destroy
-  end
-
-  private
-
-  def spot_params
     @spot = Spot.find(params[:id])
+    like = Like.find_by(user_id: current_user.id, spot_id: @spot.id)
+    like.destroy if like
   end
 end
+
